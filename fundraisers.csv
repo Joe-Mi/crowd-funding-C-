@@ -1,0 +1,103 @@
+fundraiserID,fundraiserName,description,budget,creator
+100,HealingHearts,Heart Disease Prevention and Awareness Program,670.8,bala
+1,raisertwo,jaslksadl asposo s,34000,joe
+101,mandy,aisdoasdoias,900,mandy
+2,flory,Glory of God,23.45,John
+102,fundtwo,oisadoai,9230,mandy
+3,Buddy,The Buddy Fund for my beloved dog,99,Jane
+4,Sunshine,Sunshine Fund for Children,450.75,Alex
+5,Heartbeat,Support for Cardiac Patients,675.5,Emily
+6,GreenThumb,Gardening Project for Schools,325.25,Michael
+7,Hopeful,Hospital Support Fund,880.3,filly
+8,FeedingFamilies,Food Drive for Local Families,525.9,filly
+9,HelpingHands,Community Aid Program,775.4,halo
+10,DreamBig,Scholarship Fund for Underprivileged Students,625.65,killa
+11,HealthyStart,Health Education Campaign,750.85,karen
+12,ArtisticExpression,Arts Education Program,425.3,Amanda
+13,ReadingRainbow,Literacy Program for Children,590.45,David
+14,WellnessJourney,Wellness Retreat for Seniors,865.6,Sarah
+15,EmpowerHer,Women's Empowerment Workshops,420.95,Matthew
+16,FutureLeaders,Leadership Development Program,780.25,Olivia
+17,Harmony,Music Therapy for Special Needs Children,340.5,Benjamin
+18,CleanWater,Water Filtration Project,695.75,Emily
+19,ShelterFromStorm,Homeless Shelter Expansion,840.9,Jacob
+20,GrowingTogether,Community Garden Initiative,520.35,Sophia
+21,CareForAll,Medical Assistance Program,760.8,Daniel
+22,GreenInitiative,Environmental Conservation Project,475.2,Lily
+23,ArtForEveryone,Community Art Classes,635.4,Ethan
+24,SupportingHeroes,First Responders Support Fund,890.55,Mia
+25,HealthyHabitats,Habitat Restoration Project,395.7,William
+26,BeTheChange,Youth Volunteer Program,550.85,Ava
+27,CommunityConnections,Networking Events for Small Businesses,810.95,Noah
+28,CaringCommunities,Community Outreach Program,465.3,Grace
+29,FutureDoctors,Medical School Scholarship Fund,705.5,Lucas
+30,HopeForTomorrow,Youth Mental Health Program,635.2,Natalie
+31,BrighterFutures,Educational Support for At-Risk Youth,885.4,Tyler
+32,HealthyHabits,Wellness Workshops for Teens,520.75,Isabella
+33,GreenSpaces,Park Restoration Project,770.9,Mason
+34,SupportOurSeniors,Elderly Care Program,425.65,Harper
+35,PathToSuccess,College Readiness Program,620.85,Zoey
+36,AnimalWelfare,Animal Rescue and Adoption Center,895.75,Elijah
+37,HealthyHearts,Heart Health Awareness Campaign,345.6,Mia
+38,ArtisticVision,Public Art Installation Project,605.4,Benjamin
+39,HelpingHooves,Therapeutic Horse Riding Program,750.85,Ava
+40,EmpowerYouth,Youth Leadership Initiative,355.7,Johnson
+41,SustainableFutures,Sustainable Living Workshops,535.8,Ella
+42,BeautifyOurCity,City Beautification Project,795.25,Carter
+43,EmpowermentThroughEducation,Educational Empowerment Program,470.4,Emily
+44,HealthyStart,Healthy Living Seminars,675.5,Noah
+45,GivingBack,Volunteer Appreciation Program,825.9,Scarlett
+46,StrongerTogether,Community Building Events,525.75,Lucas
+47,ShelteringHope,Homeless Shelter Support Fund,405.6,Amelia
+48,GreenCommunities,Sustainable Community Development,650.85,Logan
+49,SupportingSustainability,Sustainability Education Program,910.55,Chloe
+50,CareForOurCommunity,Community Health Clinic Expansion,365.7,Jack
+51,YouthEmpowerment,Youth Empowerment Workshops,575.8,Isabella
+52,ArtsForAll,Art Supplies for Underprivileged Children,735.9,Liam
+53,InnovateForChange,Technology Education Program,540.4,Harper
+54,HealthyHabits,Healthy Eating Initiative,605.5,Abigail
+55,CareForTheElderly,Elderly Support Services,855.75,James
+56,SupportingSTEM,STEM Education Program,385.6,Mia
+57,GreenLiving,Sustainable Living Campaign,565.85,Noah
+58,HelpingHands,Community Service Projects,820.9,Sophia
+59,EmpoweringYouth,Youth Empowerment Program,430.7,Elijah
+60,HealingHands,Medical Mission Trips,670.8,Ava
+61,EducationForAll,Education Sponsorship Program,920.55,Logan
+62,CreativeMinds,Arts Education Scholarships,475.6,Zoe
+63,CleanWaterForAll,Water Well Construction Project,725.85,Olivia
+64,SupportingFamilies,Family Support Services,485.4,Benjamin
+65,FutureLeaders,Youth Leadership Development Program,780.75,Lily
+66,ArtisticExpression,Community Art Mural Project,535.6,Ethan
+67,EmpowermentThroughArt,Art Therapy Program,795.85,Ava
+68,GreenInitiatives,Environmental Education Program,605.5,Harper
+69,CareForOurWorld,Environmental Conservation Fund,910.75,Mia
+70,SupportingSustainability,Sustainable Agriculture Project,365.6,Owen
+71,HealingHearts,Heart Health Research Fund,575.85,Scarlett
+72,EducateTheChildren,Child Education Sponsorship Program,735.9,Lucas
+73,SupportingVeterans,Veterans Assistance Program,540.4,Lucas
+74,HealthyFamilies,Family Wellness Workshops,605.5,Sarah
+75,FutureLeaders,Leadership Training Program,855.75,William
+76,GreenCommunities,Sustainable Community Initiatives,385.6,Carter
+77,HelpingHands,Community Outreach and Support,565.85,Mia and Emily
+78,CaringForAll,Medical Aid and Support Program,820.9,Olivia and Ava
+79,EmpowermentThroughEducation,Education for Underprivileged Children,430.7,Benjamin
+80,HealingHearts,Heart Disease Prevention Program,670.8,Lily
+81,ArtisticExpression,Art Scholarships for Talented Youth,920.55,Chloe
+82,SupportingSTEM,STEM Education Scholarship Fund,475.6,Noah
+83,GreenLiving,Sustainable Living Education Program,725.85,Isabella
+84,HealthyHabits,Healthy Lifestyle Education Initiative,485.4,Michael
+85,CareForTheElderly,Elderly Care and Support Services,780.75,Harper
+86,SupportingFamilies,Family Counseling and Support Program,535.6,James
+87,EmpowermentThroughArt,Art Therapy for Trauma Survivors,795.85,Matthew
+88,GreenInitiatives,Environmental Conservation and Restoration,605.5,Amelia
+89,CareForOurWorld,Environmental Sustainability Education Program,910.75,Logan
+90,SupportingSustainability,Sustainable Energy Research Fund,365.6,Owen
+91,HealingHearts,Heart Health Education and Awareness Program,575.85,Carter
+92,EducateTheChildren,Children's Education and Development Program,735.9,Zoey
+93,SupportingVeterans,Veterans Support and Rehabilitation Program,540.4,Elijah
+94,HealthyFamilies,Family Health and Wellness Program,605.5,Mia
+95,FutureLeaders,Leadership and Development Program for Youth,855.75,Benjamin
+96,GreenCommunities,Sustainable Community Development Program,385.6,Ava
+97,HelpingHands,Community Support and Outreach Program,565.85,William
+98,CaringForAll,Medical Aid and Support Program,820.9,Lucas
+99,EmpowermentThroughEducation,Education for Underprivileged Children Program,430.7,Daniel

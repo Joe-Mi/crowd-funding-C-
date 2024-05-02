@@ -1,0 +1,292 @@
+main.cpp
+
+
+#include "user.h"
+#include "fundraiser.h"
+#include <iostream>
+#include <limits>
+
+void displayHomePage() {
+    std::cout << "Please select an option to continue." << std::endl;
+    std::cout << "1. Create Fundraiser" << std::endl;
+    std::cout << "2. Search for Fundraisers" << std::endl;
+    std::cout << "3. View My Fundraisers" << std::endl;
+    std::cout << "4. Delete Account" << std::endl;
+    std::cout << "5. Sign Out" << std::endl;
+    std::cout << "Enter option: ";
+}
+
+// int main(int argc, char* argv[]) {
+//      if (argc != 3) {
+//         std::cerr << "Usage: " << argv[0] << " <users.csv> <fundraisers.csv>" << std::endl;
+//         return 1;
+//     }
+
+//     std::string usersFilename = argv[1];
+//     std::string fundraisersFilename = argv[2];
+//     User::readUsersFromFile(usersFilename);
+//     Fundraiser::readFundraisersFromFile(fundraisersFilename);
+
+//     User newuser;
+//     Fundraiser fundraiser;
+//     int option;
+//     newuser.registerUser(usersFilename);
+
+//     do {
+//         displayHomePage();
+//         std::cin >> option;
+//         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//         switch (option) {
+//             case 1:
+//                 fundraiser.createFundraiser(newuser,fundraisersFilename);
+//                 break;
+//             case 2:
+//                 fundraiser.searchFundraisers();
+//                 break;
+//             case 3:
+//                 fundraiser.viewUserFundraisers(newuser.getCurrentUser());
+//                 break;
+//             case 4:
+//                 newuser.deleteUser(newuser.getCurrentUser(), usersFilename);
+//                 option = 5;
+//                 break;
+//             case 5:
+//                 std::cout << "Goodbye" << std::endl;
+//                 break;
+//             default:
+//                 std::cout << "Invalid choice. Please try again." << std::endl;
+//         }
+//     }
+//     while (option != 5);
+
+//     return 0;
+// }
+
+
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " <users.csv> <fundraisers.csv>" << std::endl;
+        return 1;
+    }
+
+    std::string usersFilename = argv[1];
+    std::string fundraisersFilename = argv[2];
+    User::readUsersFromFile(usersFilename);
+    Fundraiser::readFundraisersFromFile(fundraisersFilename);
+
+    Fundraiser fundraiser;
+    int option;
+    std::cout << "Welcome!" << std::endl;
+    std::cout << "Please select an option:" << std::endl;
+    std::cout << "1. Sign In" << std::endl;
+    std::cout << "2. Register" << std::endl;
+    std::cout << "Enter option: ";
+    std::cin >> option;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    User currentUser;
+    if (option == 1) {
+        std::string username, email;
+        std::cout << "Enter username: ";
+        std::getline(std::cin, username);
+        std::cout << "Enter email: ";
+        std::getline(std::cin, email);
+        if (!User::signIn(username, email)) {
+            std::cout << "Sign in failed. Please register or try again." << std::endl;
+            return 1;
+        }
+        currentUser.setCurrentUser(username);
+    } else if (option == 2) {
+        currentUser.registerUser(usersFilename);
+    } else {
+        std::cerr << "Invalid option. Exiting." << std::endl;
+        return 1;
+    }
+
+    do {
+        displayHomePage();
+        std::cin >> option;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        switch (option) {
+            case 1:
+                fundraiser.createFundraiser(currentUser, fundraisersFilename);
+                break;
+            case 2:
+                fundraiser.searchFundraisers();
+                break;
+            case 3:
+                fundraiser.viewUserFundraisers(currentUser.getCurrentUser());
+                break;
+            case 4:
+                currentUser.deleteUser(currentUser.getCurrentUser(), usersFilename);
+                option = 5;
+                break;
+            case 5:
+                std::cout << "Goodbye" << std::endl;
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+    } while (option != 5);
+
+    return 0;
+}
+
+
+
+
+user.h 
+
+
+#ifndef _USER_H_
+#define _USER_H_
+
+#include <string>
+#include <vector>
+#include <list>
+
+/*
+user.h
+Created:24/03/2024
+Last Modified: 04/04/2024
+*/
+
+class User
+{
+private:
+    int userID;
+    std::string name;
+    std::string email;
+    double accountBalance;
+    static std::string currentUser;
+
+public:
+    User();
+    int getUserID();
+    std::string getName();
+    void setName(std::string name);
+    std::string getEmail();
+    void setEmail(std::string email);
+    double getAccountBalance();
+    void setCurrentUser(std::string name);
+    std::string getCurrentUser();
+    void setAccountBalance(double accountBalance);
+    void registerUser(const std::string &filename);
+    void deleteUser(std::string name, const std::string &filename);
+    static void readUsersFromFile(const std::string &filename);
+    static void writeUsersToFile(const std::string &filename);
+
+    static bool signIn(const std::string &username, const std::string &email);
+};
+
+class UserHash
+{
+private:
+    static const int hashGroups = 300;
+    std::list<std::pair<int, User>> table[hashGroups];
+    int currentObjs = 0;
+
+public:
+    static int getHashGroups() { return hashGroups; }
+    std::list<std::pair<int, User>> (&getTable())[hashGroups] { return table; }
+
+    bool isEmpty() const;
+    int hashFunction(int key);
+    int getCount();
+    void insertObj(int key, User user);
+    void removeObj(std::string name);
+    std::string searchTable(int key);
+    bool checkNames(std::string name);
+    bool checkEmail(std::string email);
+    void printTable();
+    void writeTofile(const std::string &filename);
+};
+
+#endif
+
+
+
+user.cpp
+
+
+bool User::signIn(const std::string &username, const std::string &email) {
+    for (int i = 0; i < UserHash::getHashGroups(); i++) {
+        for (auto& entry : Users.getTable()[i]) {
+            if (entry.second.getName() == username && entry.second.getEmail() == email) {
+                User user = entry.second;
+                user.setCurrentUser(username); // Set current user for the matched user
+                return true; // Credentials match, sign in successful
+            }
+        }
+    }
+    return false; // No user found with the provided credentials
+}
+
+void User::registerUser(const std::string &filename) {
+    std::string name, email;
+    double accountBalance;
+
+    bool validUsername = false;
+    while (!validUsername) {
+        std::cout << "Enter username: ";
+        std::getline(std::cin, name);
+
+        // Username entry validation
+        if (name.empty()) {
+            std::cout << "\033[1;31m" << "Invalid input. Username cannot be empty" << "\033[0m" << std::endl;
+        } else {
+            bool isValidName = std::all_of(name.begin(), name.end(), [](char c) { return std::isalnum(c) || c == ' '; });
+            bool exists = Users.checkNames(name);
+            if (!isValidName) {
+                std::cout << "\033[1;31m" << "Invalid input. Please enter a valid name" << "\033[0m" << std::endl;
+            } else if (exists) {
+                std::cout << "\033[1;31m" << "Username already exists. Please choose a different one." << "\033[0m" << std::endl;
+            } else {
+                validUsername = true;
+            }
+        }
+    }
+
+    while (true) {
+        std::cout << "Enter the email: ";
+        std::getline(std::cin, email);
+
+        // Email entry validation
+        bool exists = Users.checkEmail(email);
+        if (!std::regex_match(email, std::regex(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})"))) {
+            std::cout << "\033[1;31m" << "Invalid input. Please enter a valid email address!" << "\033[0m" << std::endl;
+        } else if (exists) {
+            std::cout << "\033[1;31m" << "Email already exists" << "\033[0m" << std::endl;
+        } else {
+            break;
+        }
+    }
+
+    while (true) {
+        std::cout << "Enter an amount: £";
+        if (!(std::cin >> accountBalance)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "\033[1;31m" << "Invalid input. Please enter a valid amount." << "\033[0m" << std::endl;
+        } else {
+            break;
+        }
+    }
+
+    // Clear the input buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    User newUser;
+    newUser.userID = Users.getCount() + 1;
+    newUser.setName(name);
+    newUser.setEmail(email);
+    newUser.setAccountBalance(accountBalance);
+    newUser.setCurrentUser(name);
+    Users.insertObj(newUser.userID, newUser);
+    User::writeUsersToFile(filename);
+    std::cout << "\033[1;32m" << "Registration Sucessful!" << "\033[0m" << std::endl;
+    std::cout << "User ID: " << newUser.getUserID() << std::endl;
+    std::cout << "Userame: " << newUser.getName() << std::endl;
+    std::cout << "Email: " << newUser.getEmail() << std::endl;
+    std::cout << "Account Balance: £" << newUser.getAccountBalance() << std::endl;
+}
